@@ -1,0 +1,39 @@
+# ------ dataset_path ------
+data_path: '/mnt/mlc1/liujunyuan/dataset/fgvc_aircraft/'
+root_path: '/mnt/mlc1/liujunyuan/dataset/'
+# ------ Hyperparamters ------
+alpha: 0.5
+
+load_cache: False
+load_pre_feat: False
+#load_pre_feat: Ture
+
+#search_scale: [1,7, 3]
+search_scale: [25,7, 50]
+
+
+# ------ Basic Config ------
+dataset: 'fgvc'
+
+init_Zeta: 1
+init_epsilon: 5
+init_beta: 1
+
+lr: 0.001
+train_epoch: 100
+batch_size: 128
+
+# only 100 categories in the file 'images_variant_train.txt'
+num_classes: 100
+
+num_threads: 8
+save_interval: 50
+search_hp: True
+cache_dir: './model/clip'
+
+# ------ Dalle Dataset -----
+dalle_dataset: 'dalle_fgvc'
+dalle_shots: [1,2,2,1,1]
+
+gpt3_prompt_file: './gpt_file/fgvc_prompt.json'
+gpt3_prompt : Ture

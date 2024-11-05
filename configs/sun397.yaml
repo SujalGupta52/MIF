@@ -1,0 +1,39 @@
+# ------ dataset_path ------
+data_path: '/mnt/mlc1/liujunyuan/dataset/sun397/'
+root_path: '/mnt/mlc1/liujunyuan/dataset/'
+
+# ------ Hyperparamters ------
+alpha: 0.5
+init_Zeta: 1
+init_epsilon: 0.8
+init_beta: 1
+
+load_cache: False
+load_pre_feat: False
+
+
+search_scale: [20,20, 50]
+
+search_hp: True
+
+# ------ Basic Config ------
+dataset: 'sun397'
+
+
+lr: 0.001
+train_epoch: 20
+batch_size: 128
+
+num_classes: 397
+
+num_threads: 8
+save_interval: 50
+
+cache_dir: './model/clip'
+
+# ------ Dalle Dataset -----
+dalle_dataset: 'dalle_sun'
+dalle_shots: [3,5,8,10,8]
+
+gpt3_prompt_file: './gpt_file/sun397_prompt.json'
+gpt3_prompt : Ture

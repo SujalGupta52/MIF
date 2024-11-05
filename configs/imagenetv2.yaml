@@ -1,0 +1,31 @@
+# ------ dataset_path ------
+data_path: "/tmp/yh_maple/data/imagenetv2/imagenetv2-matched-frequency-format-val/"
+
+# ------ Hyperparamters ------
+alpha: 0.5
+
+search_scale: [15,20, 50]
+
+load_cache: False
+load_pre_feat: False
+
+search_hp: True
+# ------ Basic Config ------
+dataset: 'imagenetv2'
+shots: 16
+backbone: 'RN50' # RN50 RN101 ViT-B/32 ViT-B/16
+
+lr: 0.001
+train_epoch: 100
+batch_size: 128
+
+augment_epoch: 10
+num_classes: 1000
+
+num_threads: 8
+save_interval: 100
+
+cache_dir: './model/clip'
+
+gpt3_prompt_file: './gpt_file/imagenet_prompt.json'
+gpt3_prompt : Ture

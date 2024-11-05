@@ -1,0 +1,44 @@
+# ------ dataset_path ------
+data_path: '/tmp/yh_maple/data/oxford_flowers/'
+root_path: '/tmp/yh_maple/data/'
+
+# ------ Hyperparamters ------
+alpha: 0.5
+
+
+
+
+load_cache: False
+load_pre_feat: False
+
+search_scale: [10,1, 50]
+
+
+init_beta: 2
+init_Zeta: 0.8
+init_epsilon: 14
+
+# ------ Basic Config ------
+dataset: 'oxford_flowers'
+shots: 16
+backbone: 'RN50' # RN50 RN101 ViT-B/32 ViT-B/16
+
+lr: 0.001
+train_epoch: 30
+batch_size: 64
+
+num_classes: 102
+
+num_threads: 8
+save_interval: 50
+
+search_hp: True
+
+cache_dir: './model/clip'
+
+# ------ Dalle Dataset -----
+dalle_dataset: 'dalle_flowers'
+dalle_shots: [1,2,2,2,1]
+
+gpt3_prompt_file: './gpt_file/oxford_flowers_prompt.json'
+gpt3_prompt : False

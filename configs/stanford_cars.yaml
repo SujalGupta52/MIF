@@ -1,0 +1,40 @@
+# ------ dataset_path ------
+data_path: '/mnt/mlc1/liujunyuan/dataset/stanford_cars/'
+root_path: '/mnt/mlc1/liujunyuan/dataset/'
+
+
+# ------ Hyperparamters ------
+alpha: 0.5
+
+init_beta: 1
+init_Zeta: 1
+init_epsilon: 0.8
+
+search_scale: [15,20, 50]
+
+search_hp: True
+
+
+load_cache: False
+load_pre_feat: False
+
+# ------ Basic Config ------
+dataset: 'stanford_cars'
+
+lr: 0.001
+train_epoch: 200
+batch_size: 128
+
+num_classes: 196
+
+num_threads: 8
+save_interval: 50
+
+cache_dir: './model/clip'
+
+# ------ Dalle Dataset -----
+dalle_dataset: 'dalle_cars'
+dalle_shots: [16,16,16,1,1]
+
+gpt3_prompt_file: './gpt_file/stanford_cars_prompt.json'
+gpt3_prompt : Ture

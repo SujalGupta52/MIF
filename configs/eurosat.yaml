@@ -1,0 +1,40 @@
+# ------ dataset_path ------
+data_path: '/mnt/mlc1/liujunyuan/dataset/eurosat/'
+root_path: '/mnt/mlc1/liujunyuan/dataset/'
+
+init_Zeta: 1
+init_epsilon: 5
+init_beta: 10
+# ------ Hyperparamters ------
+alpha: 0.5
+
+load_cache: False
+load_pre_feat: False
+#load_pre_feat: Ture
+search_hp: True
+
+
+#search_scale: [25,1, 25]
+search_scale: [25,1, 50]
+
+# ------ Basic Config ------
+dataset: 'eurosat'
+
+
+lr: 0.001
+train_epoch: 100
+batch_size: 64
+
+num_classes: 10
+
+num_threads: 8
+save_interval: 50
+
+cache_dir: './model/clip'
+
+# ------ Dalle Dataset -----
+dalle_dataset: 'dalle_eurosat'
+dalle_shots: [2,1,2,5,8]
+
+gpt3_prompt_file: './gpt_file/eurosat_prompt.json'
+gpt3_prompt : True

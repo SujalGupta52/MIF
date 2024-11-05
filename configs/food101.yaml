@@ -1,0 +1,39 @@
+# ------ dataset_path ------
+data_path: '/mnt/mlc1/liujunyuan/dataset/food-101/'
+root_path: '/mnt/mlc1/liujunyuan/dataset/'
+
+init_Zeta: 1
+init_epsilon: 1.17
+init_beta: 1
+# ------ Hyperparamters ------
+alpha: 0.5
+
+#search_scale: [12,1, 10]
+search_scale: [12,1, 50]
+
+
+load_cache: False
+load_pre_feat: False
+#load_pre_feat: Ture
+search_hp: True
+# ------ Basic Config ------
+dataset: 'food101'
+
+
+lr: 0.001
+train_epoch: 200
+batch_size: 128
+
+num_classes: 101
+
+num_threads: 8
+save_interval: 50
+
+cache_dir: './model/clip'
+
+# ------ Dalle Dataset -----
+dalle_dataset: 'dalle_food'
+dalle_shots: [2,2,2,2,2]
+
+gpt3_prompt_file: './gpt_file/food101_prompt.json'
+gpt3_prompt : Ture
