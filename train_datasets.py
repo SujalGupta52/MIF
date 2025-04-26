@@ -2,18 +2,42 @@ import os
 import argparse
 import yaml
 import sys
+import importlib.util
 
 import torch
 import torchvision.transforms as transforms
 import clip
-from logger import *
-from trainer import Trainer
 
-# Use explicit relative imports to avoid conflicts with installed packages
-from .datasets import build_dataset
-from .datasets.utils import _transform, build_data_loader
-from .utils import *
-from .RandAugment import RandAugment
+# Setup proper imports that work in both regular and Kaggle environments
+try:
+    # First try normal imports (for when the module is run from the project root)
+    from logger import *
+    from trainer import Trainer
+    from datasets import build_dataset
+    from datasets.utils import _transform, build_data_loader
+    from utils import *
+    from RandAugment import RandAugment
+except ImportError:
+    # If that fails, try to determine the module path and add it to sys.path
+    module_path = os.path.dirname(os.path.abspath(__file__))
+    if module_path not in sys.path:
+        sys.path.insert(0, module_path)
+    # Now try the imports again with absolute paths
+    from logger import *
+    from trainer import Trainer
+
+    # Check if we need to use our local datasets module or the system one
+    if importlib.util.find_spec("datasets.utils") is None:
+        # Create a special import for datasets to avoid conflicts with Kaggle's datasets package
+        sys.path.insert(0, os.path.join(module_path, "datasets"))
+        from datasets import build_dataset
+        from utils import _transform, build_data_loader
+    else:
+        # We can use our own datasets module
+        from datasets import build_dataset
+        from datasets.utils import _transform, build_data_loader
+    from utils import *
+    from RandAugment import RandAugment
 
 
 def get_arguments():
