@@ -8,10 +8,12 @@ import torchvision.transforms as transforms
 import clip
 from logger import *
 from trainer import Trainer
-from datasets import build_dataset
-from datasets.utils import _transform, build_data_loader
-from utils import *
-from RandAugment import RandAugment
+
+# Use explicit relative imports to avoid conflicts with installed packages
+from .datasets import build_dataset
+from .datasets.utils import _transform, build_data_loader
+from .utils import *
+from .RandAugment import RandAugment
 
 
 def get_arguments():
